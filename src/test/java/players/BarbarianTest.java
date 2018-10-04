@@ -1,5 +1,7 @@
 package players;
 
+import behaviours.Targetable;
+import enemies.Troll;
 import org.junit.Before;
 import org.junit.Test;
 import weapons.Club;
@@ -12,10 +14,12 @@ public class BarbarianTest {
 
     Barbarian barbarian;
     Club club;
+    Troll troll;
 
     @Before
     public void setUp() {
         club = new Club(WeaponType.CLUB, 15.00);
+        troll = new Troll("Bob", 20.00, club);
         barbarian = new Barbarian("Berethor", 50.00, club);
     }
 
@@ -70,5 +74,18 @@ public class BarbarianTest {
         Sword sword = new Sword(WeaponType.SWORD, 10.00);
         barbarian.setWeapon(sword);
         assertEquals(WeaponType.SWORD, barbarian.getWeapon().getWeaponType());
+    }
+
+    @Test
+    public void canAttack() {
+        barbarian.attack(troll);
+        assertEquals(5, troll.getHealthPoint(), 0.01);
+    }
+
+    @Test
+    public void cannotAttackGoodie() {
+        Dwarf dwarf = new Dwarf("Gimli", 20.00, club);
+        barbarian.attack(dwarf);
+        assertEquals(20.00, dwarf.getHealthPoint(), 0.01);
     }
 }

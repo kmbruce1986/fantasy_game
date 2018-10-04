@@ -1,5 +1,6 @@
 package enemies;
 
+import behaviours.Targetable;
 import weapons.Weapon;
 
 public class Troll extends Enemy {

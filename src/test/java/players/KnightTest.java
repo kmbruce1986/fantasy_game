@@ -1,5 +1,6 @@
 package players;
 
+import enemies.Troll;
 import org.junit.Before;
 import org.junit.Test;
 import weapons.Club;
@@ -12,10 +13,12 @@ public class KnightTest {
 
     Knight knight;
     Sword sword;
+    Troll troll;
 
     @Before
     public void setUp() {
         sword = new Sword(WeaponType.SWORD, 10.00);
+        troll = new Troll("Bob", 20.00, sword);
         knight = new Knight("Arthas", 40.00, sword);
     }
 
@@ -69,6 +72,19 @@ public class KnightTest {
         Club club = new Club(WeaponType.CLUB, 10.00);
         knight.setWeapon(club);
         assertEquals(WeaponType.CLUB, knight.getWeapon().getWeaponType());
+    }
+
+    @Test
+    public void canAttack() {
+        knight.attack(troll);
+        assertEquals(15, troll.getHealthPoint(), 0.01);
+    }
+
+    @Test
+    public void cannotAttackGoodie() {
+        Dwarf dwarf = new Dwarf("Heheo", 20.00, sword);
+        dwarf.attack(dwarf);
+        assertEquals(20.00, dwarf.getHealthPoint(), 0.01);
     }
 
 }

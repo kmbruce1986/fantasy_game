@@ -1,8 +1,9 @@
 package enemies;
 
+import behaviours.Targetable;
 import weapons.Weapon;
 
-public abstract class Enemy {
+public abstract class Enemy implements Targetable {
 
     private String name;
     private Double healthPoint;
