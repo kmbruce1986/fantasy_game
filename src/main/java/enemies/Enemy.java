@@ -18,7 +18,7 @@ public abstract class Enemy {
         return name;
     }
 
-    public Double getHealthPoints() {
+    public Double getHealthPoint() {
         return healthPoint;
     }
 
