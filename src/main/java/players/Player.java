@@ -1,8 +1,10 @@
 package players;
 
+import behaviours.Targetable;
+
 import java.util.ArrayList;
 
-public abstract class Player {
+public abstract class Player implements Targetable {
 
     private String name;
     private Double healthPoint;
