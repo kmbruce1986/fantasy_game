@@ -1,6 +1,8 @@
 package mythical;
 
-public abstract class MythicalCreature {
+import behaviours.Attackable;
+
+public abstract class MythicalCreature implements Attackable {
 
     private String name;
     private Double attackValue;
@@ -17,4 +19,6 @@ public abstract class MythicalCreature {
     public Double getAttackValue() {
         return attackValue;
     }
+
+
 }
