@@ -57,4 +57,9 @@ public class WarlockTest {
         assertEquals(true, warlock.checkDead());
     }
 
+    @Test
+    public void canGetMythicalCreature() {
+        assertEquals("Smaug", warlock.getMythicalCreature().getName());
+    }
+
 }

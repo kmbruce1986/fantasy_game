@@ -18,7 +18,4 @@ public abstract class SpellCaster extends Player {
         return mythicalCreature;
     }
 
-    public void setMythicalCreature(MythicalCreature mythicalCreature) {
-        this.mythicalCreature = mythicalCreature;
-    }
 }
